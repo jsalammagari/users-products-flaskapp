@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: userproductmonolith-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: userproductmonolith
+  template:
+    metadata:
+      labels:
+        app: userproductmonolith
+    spec:
+      containers:
+      - name: userproductmonolith
+        image: jsalammagari/userproductmonolith
+        ports:
+        - containerPort: 5004
